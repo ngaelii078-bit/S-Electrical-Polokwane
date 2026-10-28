@@ -14,7 +14,13 @@ Open `dist/index.html` in a browser, or serve the `dist` directory with a local 
 - Floating WhatsApp button and WhatsApp enquiry form
 - Scripted demo assistant (no live AI or API key required)
 
-## Checks
+## Vercel deployment
+
+Import this repository with the Root Directory set to the repository root (leave it blank in Vercel). The root `vercel.json` selects the static-site preset, skips installation and building, and publishes `dist`, which contains `index.html` and the website assets.
+
+If an older deployment shows a 404, deploy the latest `main` commit. The existing deployment is not changed retroactively.
+
+## Validation
 
 Run `node check.cjs`, `node --check dist/script.js`, and `node --check dist/motion.js`.
 
