@@ -5,7 +5,7 @@ if (new Set(ids).size !== ids.length) throw Error('Duplicate IDs');
 for (const match of html.matchAll(/href="#([^"]+)"/g)) {
   if (!ids.includes(match[1])) throw Error('Missing section: ' + match[1]);
 }
-for (const file of ['styles.css', 'script.js']) {
+for (const file of ['styles.css', 'studio.css', 'script.js', 'motion.js']) {
   if (!fs.existsSync('dist/' + file)) throw Error('Missing asset: ' + file);
 }
 console.log('Local assets, section links and unique IDs verified.');
