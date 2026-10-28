@@ -33,7 +33,12 @@ function send(question) {
   const log = $('#chat-log'), user = document.createElement('p'), bot = document.createElement('p');
   user.className = 'user-message'; user.textContent = question; log.append(user);
   bot.className = 'bot-message'; bot.textContent = answer(question); log.append(bot);
-  const link = document.createElement('a'); link.href = whatsappUrl('Hi S² Electrical, ' + question); link.target = '_blank'; link.rel = 'noopener'; link.textContent = 'Continue with the team on WhatsApp ↗'; bot.append(document.createElement('br'),document.createElement('br'),link);
+  const link = document.createElement('a'); link.href = whatsappUrl('Hi S² Electrical, ' + question); link.target = '_blank'; link.rel = 'noopener'; link.textContent = 'Continue with the team on WhatsApp ';
+  const arrow = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  arrow.setAttribute('class', 'arrow-icon'); arrow.setAttribute('viewBox', '0 0 24 24'); arrow.setAttribute('aria-hidden', 'true'); arrow.setAttribute('focusable', 'false');
+  const arrowPath = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  arrowPath.setAttribute('d', 'M5 19 19 5M5 5h14v14'); arrow.append(arrowPath); link.append(arrow);
+  bot.append(document.createElement('br'),document.createElement('br'),link);
   log.scrollTop = log.scrollHeight;
 }
 $('#chat-form').addEventListener('submit', event => { event.preventDefault(); send($('#chat-input').value); $('#chat-input').value = ''; });
